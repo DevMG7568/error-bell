@@ -2,7 +2,7 @@
   "name": "error-bell",
   "displayName": "Error Bell",
   "description": "Plays a sound when a terminal command exits with an error",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "MilanGarmora",
   "icon": "error-bell-icon.png",
   "repository": {
