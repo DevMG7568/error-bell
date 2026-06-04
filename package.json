@@ -3,6 +3,11 @@
   "displayName": "Error Bell",
   "description": "Plays a sound when a terminal command exits with an error",
   "version": "0.0.1",
+  "publisher": "MilanGarmora",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevMG7568/error-bell.git"
+  },
   "engines": {
     "vscode": "^1.120.0"
   },
@@ -106,6 +111,7 @@
     "@types/vscode": "^1.120.0",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.9.2",
     "eslint": "^9.39.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
