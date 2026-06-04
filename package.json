@@ -2,7 +2,7 @@
   "name": "error-bell",
   "displayName": "Error Bell – Terminal Sound Alerts",
   "description": "Plays a sound alert when terminal commands fail. Stay focused — get instantly notified of build failures, test errors, and script crashes without watching the terminal.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "MilanGarmora",
   "icon": "error-bell-icon.png",
   "repository": {
