@@ -163,9 +163,9 @@ export function activate(context: vscode.ExtensionContext) {
 		}),
 	);
 
-	// First-run: open sound picker
+	// First-run: open settings panel
 	if (!context.globalState.get<boolean>('errorBell.soundChosen', false)) {
-		showSoundPicker(context);
+		openSettingsPanel(context);
 	}
 
 	// Check terminals already open when extension activates
