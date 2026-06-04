@@ -1,0 +1,31 @@
+name: Branch Sync Check
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-up-to-date:
+    name: Check branch is up to date with main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if branch is behind main
+        run: |
+          git fetch origin main
+          BEHIND=$(git rev-list --count HEAD..origin/main)
+          if [ "$BEHIND" -gt 0 ]; then
+            echo "❌ This branch is $BEHIND commit(s) behind origin/main."
+            echo "Please rebase or merge main into your branch before merging."
+            exit 1
+          else
+            echo "✅ Branch is up to date with origin/main."
+          fi
