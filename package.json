@@ -4,6 +4,7 @@
   "description": "Plays a sound when a terminal command exits with an error",
   "version": "0.0.1",
   "publisher": "MilanGarmora",
+  "icon": "error-bell-icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/DevMG7568/error-bell.git"
