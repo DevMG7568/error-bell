@@ -1,0 +1,113 @@
+{
+  "name": "error-bell",
+  "displayName": "Error Bell",
+  "description": "Plays a sound when a terminal command exits with an error",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "error-bell.toggle",
+        "title": "Toggle On/Off",
+        "category": "Error Bell"
+      },
+      {
+        "command": "error-bell.openSettings",
+        "title": "Settings",
+        "category": "Error Bell"
+      }
+    ],
+    "configuration": {
+      "title": "Error Bell",
+      "properties": {
+        "errorBell.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the Error Bell sound on terminal command failure."
+        },
+        "errorBell.sound": {
+          "type": "string",
+          "default": "SystemSound",
+          "markdownDescription": "The sound to play on error. Use `Error Bell: Select Sound` from the Command Palette to choose or add custom sounds.",
+          "enum": [
+            "SystemSound",
+            "Random"
+          ],
+          "enumDescriptions": [
+            "Default OS alert sound",
+            "Pick randomly from system sound and all your custom sounds"
+          ]
+        },
+        "errorBell.volume": {
+          "type": "integer",
+          "default": 100,
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Playback volume for error sounds (0 = mute, 100 = max). Use 'Error Bell: Set Volume' to change."
+        },
+        "errorBell.cooldown": {
+          "type": "integer",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 60,
+          "description": "Minimum seconds between error sounds. Prevents spam when a script fails repeatedly in a loop. Set to 0 to disable."
+        },
+        "errorBell.ignoredExitCodes": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "default": [
+            130
+          ],
+          "description": "Exit codes that should never trigger the error sound. Default: [130] (Ctrl+C). Common additions: 1 (grep no match, git diff), 2 (misuse of shell built-ins)."
+        },
+        "errorBell.quietHoursStart": {
+          "type": "string",
+          "default": "",
+          "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$|^$",
+          "description": "Start of quiet hours in 24h format (e.g. 22:00). Leave empty to disable quiet hours."
+        },
+        "errorBell.quietHoursEnd": {
+          "type": "string",
+          "default": "",
+          "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$|^$",
+          "description": "End of quiet hours in 24h format (e.g. 08:00). Leave empty to disable quiet hours. Supports overnight ranges (e.g. 22:00 to 08:00)."
+        },
+        "errorBell.successSound": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Sound to play when a terminal command exits successfully (exit code 0). Leave empty to disable. Set to `SystemSound` for the OS default, `Random` to pick randomly from your `sounds-success` folder, or paste an absolute path to a specific file."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "test:unit": "npm run compile && mocha --ui tdd out/test/**/*.test.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.19.19",
+    "@types/vscode": "^1.120.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}
