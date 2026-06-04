@@ -1,5 +1,9 @@
 # 🔔 Error Bell
 
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/MilanGarmora.error-bell?label=Installs&color=blue)](https://marketplace.visualstudio.com/items?itemName=MilanGarmora.error-bell)
+[![Rating](https://img.shields.io/visual-studio-marketplace/stars/MilanGarmora.error-bell?label=Rating)](https://marketplace.visualstudio.com/items?itemName=MilanGarmora.error-bell&ssr=false#review-details)
+[![GitHub Stars](https://img.shields.io/github/stars/DevMG7568/error-bell?style=social)](https://github.com/DevMG7568/error-bell)
+
 **Never miss a failed build again.**
 
 Error Bell is a VS Code extension that listens to every terminal command you run and plays a sound the moment one exits with an error — so you can stay focused on your work instead of babysitting the terminal.
@@ -90,3 +94,9 @@ Have an idea, found a bug, or want a new sound category? I'd love to hear from y
 📬 **[devmg7568@gmail.com](mailto:devmg7568@gmail.com)**
 
 All feedback is welcome — feature requests, UX improvements, platform-specific issues, or just a note to say it worked for you.
+
+---
+
+## Enjoying Error Bell?
+
+If this extension saves you time, please consider **[leaving a ⭐ review on the Marketplace](https://marketplace.visualstudio.com/items?itemName=MilanGarmora.error-bell&ssr=false#review-details)** — it helps others discover it and keeps the project going. Thank you!

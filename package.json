@@ -1,8 +1,8 @@
 {
   "name": "error-bell",
-  "displayName": "Error Bell",
-  "description": "Plays a sound when a terminal command exits with an error",
-  "version": "0.0.4",
+  "displayName": "Error Bell – Terminal Sound Alerts",
+  "description": "Plays a sound alert when terminal commands fail. Stay focused — get instantly notified of build failures, test errors, and script crashes without watching the terminal.",
+  "version": "0.0.5",
   "publisher": "MilanGarmora",
   "icon": "error-bell-icon.png",
   "repository": {
@@ -12,6 +12,22 @@
   "engines": {
     "vscode": "^1.120.0"
   },
+  "keywords": [
+    "terminal",
+    "sound",
+    "notification",
+    "bell",
+    "error",
+    "alert",
+    "audio",
+    "build",
+    "failure",
+    "productivity",
+    "monitor",
+    "shell",
+    "bash",
+    "beep"
+  ],
   "categories": [
     "Other"
   ],
