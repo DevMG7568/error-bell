@@ -163,10 +163,24 @@ export function activate(context: vscode.ExtensionContext) {
 		}),
 	);
 
-	// First-run: open settings panel
-	if (!context.globalState.get<boolean>('errorBell.soundChosen', false)) {
+	// Open settings on fresh install or reinstall, but NOT on version upgrades.
+	// globalState persists across uninstall/reinstall, so we use the mtime of
+	// the compiled extension file as a proxy — on every fresh install/reinstall
+	// the file is newly copied with a new timestamp, while a normal restart or
+	// a version upgrade leaves the already-stored mtime logic distinguishable.
+	const INSTALL_MTIME_KEY = 'errorBell.extensionFileMtime';
+	const INSTALL_VERSION_KEY = 'errorBell.installedVersion';
+	const currentMtime = fs.statSync(__filename).mtimeMs.toString();
+	const currentVersion = context.extension.packageJSON.version as string;
+	const storedMtime = context.globalState.get<string>(INSTALL_MTIME_KEY);
+	const storedVersion = context.globalState.get<string>(INSTALL_VERSION_KEY);
+	const isFirstInstall = !storedMtime;
+	const isReinstall = storedMtime !== currentMtime && storedVersion === currentVersion;
+	if (isFirstInstall || isReinstall) {
 		openSettingsPanel(context);
 	}
+	context.globalState.update(INSTALL_MTIME_KEY, currentMtime);
+	context.globalState.update(INSTALL_VERSION_KEY, currentVersion);
 
 	// Check terminals already open when extension activates
 	vscode.window.terminals.forEach(terminal => handleTerminalOpened(terminal, context, 0));
