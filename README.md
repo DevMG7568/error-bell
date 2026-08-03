@@ -6,7 +6,7 @@
 
 **Never miss a failed build again.**
 
-Error Bell is a VS Code extension that listens to every terminal command you run and plays a sound the moment one exits with an error — so you can stay focused on your work instead of babysitting the terminal.
+Error Bell is a VS Code and Cursor extension that listens to every terminal command you run and plays a sound the moment one exits with an error — so you can stay focused on your work instead of babysitting the terminal.
 
 ---
 
