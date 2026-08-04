@@ -2,7 +2,7 @@
   "name": "error-bell",
   "displayName": "Error Bell – Terminal Sound Alerts",
   "description": "Plays a sound alert when terminal commands fail. Stay focused — get instantly notified of build failures, test errors, and script crashes without watching the terminal.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "MilanGarmora",
   "icon": "error-bell-icon.png",
   "repository": {
@@ -10,7 +10,7 @@
     "url": "https://github.com/DevMG7568/error-bell.git"
   },
   "engines": {
-    "vscode": "^1.120.0"
+    "vscode": "^1.93.0"
   },
   "keywords": [
     "terminal",
@@ -125,7 +125,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.19.19",
-    "@types/vscode": "^1.120.0",
+    "@types/vscode": "^1.93.0",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
     "@vscode/vsce": "^3.9.2",
